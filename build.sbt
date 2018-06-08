@@ -13,7 +13,6 @@ val tagOrHash = Def.setting {
   if (isSnapshot.value) gitHash() else tagName.value
 }
 val Scala212 = "2.12.6"
-val unusedWarnings = Seq("-Ywarn-unused-import")
 
 lazy val commonSettings = nocomma {
   scalaVersion := Scala212
@@ -66,13 +65,11 @@ lazy val scalazMagnolia = crossProject(JVMPlatform, JSPlatform)
   .in(file("."))
   .settings(
     commonSettings,
-    scalapropsCoreSettings,
-    Seq(Compile, Test).flatMap(c => scalacOptions in (c, console) --= unusedWarnings)
+    scalapropsCoreSettings
   )
   .settings(nocomma {
     name := UpdateReadme.scalazMagnoliaName
     description := "generate scalaz instances with magnolia"
-    scalacOptions ++= unusedWarnings
     scalacOptions ++= Seq(
       "-deprecation",
       "-encoding",
