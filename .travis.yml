@@ -3,7 +3,7 @@ sudo: false
 scala:
 - 2.12.7
 script:
-- sbt scalafmtCheck scalafmtSbtCheck test:scalafmtCheck "++ ${TRAVIS_SCALA_VERSION}!" jvm/test js/test
+- sbt scalafmtCheck scalafmtSbtCheck test:scalafmtCheck "++ ${TRAVIS_SCALA_VERSION}!" scalazMagnoliaJVM/test scalazMagnoliaJS/test
 jdk:
 - oraclejdk8
 cache:
