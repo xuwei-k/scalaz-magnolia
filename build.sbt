@@ -61,7 +61,7 @@ lazy val commonSettings = nocomma {
 }
 
 lazy val scalazMagnolia = crossProject(JVMPlatform, JSPlatform)
-  .crossType(CrossType.Pure) // https://github.com/lucidsoftware/neo-sbt-scalafmt/issues/59
+  .crossType(CrossType.Pure)
   .in(file("."))
   .settings(
     commonSettings,
