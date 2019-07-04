@@ -5,7 +5,7 @@ scala:
 script:
 - sbt scalafmtCheck scalafmtSbtCheck test:scalafmtCheck "++ ${TRAVIS_SCALA_VERSION}!" scalazMagnoliaJVM/test scalazMagnoliaJS/test
 jdk:
-- oraclejdk8
+- openjdk8
 cache:
   directories:
   - "$HOME/.ivy2/cache"
