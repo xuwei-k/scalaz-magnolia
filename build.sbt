@@ -12,12 +12,12 @@ val tagName = Def.setting {
 val tagOrHash = Def.setting {
   if (isSnapshot.value) gitHash() else tagName.value
 }
-val Scala212 = "2.12.8"
-val Scala213 = "2.13.0"
+val Scala212 = "2.12.10"
+val Scala213 = "2.13.1"
 
 lazy val commonSettings = nocomma {
   scalaVersion := Scala212
-  crossScalaVersions := Seq(Scala212, "2.13.0")
+  crossScalaVersions := Seq(Scala212, Scala213)
   organization := "com.github.xuwei-k"
   homepage := Some(url("https://github.com/xuwei-k/scalaz-magnolia"))
   licenses := Seq("MIT License" -> url("https://opensource.org/licenses/mit-license"))
