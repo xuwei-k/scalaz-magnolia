@@ -1,7 +1,7 @@
 package scalaz
 
 import scalaprops.{Property, Scalaprops}
-import scalaprops.ScalapropsMagnolia._
+import scalaprops.ScalapropsMagnoliaGen._
 import scalaz.std.anyVal._
 
 private case class XXX(x: Int, y: Byte)

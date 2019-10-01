@@ -1,7 +1,7 @@
 package scalaz
 
 import scalaprops.{scalazlaws, Property, Scalaprops}
-import scalaprops.ScalapropsMagnolia._
+import scalaprops.ScalapropsMagnoliaGen._
 import scalaz.std.anyVal._
 import scalaz.std.tuple._
 
