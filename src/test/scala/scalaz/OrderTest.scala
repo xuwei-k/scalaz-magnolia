@@ -46,7 +46,6 @@ object A {
 }
 
 object OrderTest extends Scalaprops {
-
   override def param = super.param.copy(minSuccessful = 10000)
 
   val testEqual = Property.forAll { (x: A, y: A) =>
