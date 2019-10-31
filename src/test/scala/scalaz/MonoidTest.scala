@@ -17,7 +17,6 @@ private object XXX {
 }
 
 object MonoidTest extends Scalaprops {
-
   override def param = super.param.copy(minSuccessful = 10000)
 
   val testSemigroup = Property.forAll { (x: XXX, y: XXX) =>
@@ -34,5 +33,4 @@ object MonoidTest extends Scalaprops {
     import ScalazMagnoliaMonoid._
     XXX.instance.append(x, y) == Monoid[XXX].append(x, y)
   }
-
 }
