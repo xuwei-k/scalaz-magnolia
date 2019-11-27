@@ -107,7 +107,7 @@ lazy val scalazMagnolia = crossProject(JVMPlatform, JSPlatform)
     }
     scalapropsVersion := "0.6.2"
     libraryDependencies ++= Seq(
-      "com.propensive" %%% "magnolia" % "0.12.0",
+      "com.propensive" %%% "magnolia" % "0.12.1",
       "org.scalaz" %%% "scalaz-core" % "7.2.29",
       "com.github.scalaprops" %%% "scalaprops-scalaz" % scalapropsVersion.value % "test",
       "com.github.scalaprops" %%% "scalaprops" % scalapropsVersion.value % "test",
