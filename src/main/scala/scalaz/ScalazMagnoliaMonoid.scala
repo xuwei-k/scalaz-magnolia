@@ -8,9 +8,7 @@ object ScalazMagnoliaMonoid {
   def combine[A](ctx: CaseClass[Typeclass, A]): Typeclass[A] =
     new Monoid[A] {
       def append(a: A, b: => A): A =
-        ctx.construct { p =>
-          p.typeclass.append(p.dereference(a), p.dereference(b))
-        }
+        ctx.construct { p => p.typeclass.append(p.dereference(a), p.dereference(b)) }
 
       def zero: A =
         ctx.construct(_.typeclass.zero)

@@ -10,14 +10,10 @@ object ScalazMagnoliaOrder {
   def combine[A](ctx: CaseClass[Typeclass, A]): Typeclass[A] =
     new Order[A] {
       override def order(x: A, y: A): Ordering =
-        Foldable[List].foldMap(ctx.parameters.toList) { p =>
-          p.typeclass.order(p.dereference(x), p.dereference(y))
-        }
+        Foldable[List].foldMap(ctx.parameters.toList) { p => p.typeclass.order(p.dereference(x), p.dereference(y)) }
 
       override def equal(x: A, y: A): Boolean =
-        ctx.parameters.forall { p =>
-          p.typeclass.equal(p.dereference(x), p.dereference(y))
-        }
+        ctx.parameters.forall { p => p.typeclass.equal(p.dereference(x), p.dereference(y)) }
     }
 
   def dispatch[A](ctx: SealedTrait[Typeclass, A]): Typeclass[A] =
@@ -39,9 +35,7 @@ object ScalazMagnoliaOrder {
       }
 
       override def equal(x: A, y: A): Boolean =
-        ctx.dispatch(x) { sub =>
-          sub.cast.isDefinedAt(y) && sub.typeclass.equal(sub.cast(x), sub.cast(y))
-        }
+        ctx.dispatch(x) { sub => sub.cast.isDefinedAt(y) && sub.typeclass.equal(sub.cast(x), sub.cast(y)) }
     }
 
   implicit def scalazOrderAutoInstance[A]: Typeclass[A] =
