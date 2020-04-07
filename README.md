@@ -1,6 +1,6 @@
 # scalaz-magnolia
 
-[![Build Status](https://travis-ci.org/xuwei-k/scalaz-magnolia.svg?branch=master)](https://travis-ci.org/xuwei-k/scalaz-magnolia)
+[![Build Status](https://travis-ci.com/xuwei-k/scalaz-magnolia.svg?branch=master)](https://travis-ci.com/xuwei-k/scalaz-magnolia)
 [![scaladoc](https://javadoc-badge.appspot.com/com.github.xuwei-k/scalaz-magnolia_2.12.svg?label=scaladoc)](https://javadoc-badge.appspot.com/com.github.xuwei-k/scalaz-magnolia_2.12?javadocio=true)
 
 ### build.sbt
