@@ -8,11 +8,11 @@
 for jvm
 
 ```scala
-libraryDependencies += "com.github.xuwei-k" %% "scalaz-magnolia" % "0.4.1"
+libraryDependencies += "com.github.xuwei-k" %% "scalaz-magnolia" % "0.4.2"
 ```
 
 for scala-js
 
 ```scala
-libraryDependencies += "com.github.xuwei-k" %%% "scalaz-magnolia" % "0.4.1"
+libraryDependencies += "com.github.xuwei-k" %%% "scalaz-magnolia" % "0.4.2"
 ```
