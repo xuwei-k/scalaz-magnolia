@@ -13,7 +13,7 @@ case object E extends A
 
 object A {
   private[this] val instanceB: Order[B] =
-    Divide[Order].deriving2(Function.unlift(B.unapply))
+    Divide[Order].dividing2(Function.unlift(B.unapply))
 
   private[this] val instanceC: Order[C] =
     Order[Boolean \/ Boolean].contramap(_.value)
