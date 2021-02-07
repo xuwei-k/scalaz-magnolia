@@ -110,7 +110,7 @@ lazy val scalazMagnolia = crossProject(JVMPlatform, JSPlatform)
       "org.scalaz" %%% "scalaz-core" % "7.3.3",
       "com.github.scalaprops" %%% "scalaprops-scalaz" % scalapropsVersion.value % "test",
       "com.github.scalaprops" %%% "scalaprops" % scalapropsVersion.value % "test",
-      "com.github.scalaprops" %%% "scalaprops-magnolia" % "0.6.2" % "test"
+      "com.github.scalaprops" %%% "scalaprops-magnolia" % "0.7.0" % "test"
     )
     scalacOptions in (Compile, doc) ++= {
       val tag = tagOrHash.value
