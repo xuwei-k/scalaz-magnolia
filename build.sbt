@@ -13,8 +13,8 @@ val tagName = Def.setting {
 val tagOrHash = Def.setting {
   if (isSnapshot.value) gitHash() else tagName.value
 }
-val Scala212 = "2.12.12"
-val Scala213 = "2.13.4"
+val Scala212 = "2.12.13"
+val Scala213 = "2.13.5"
 
 lazy val commonSettings = nocomma {
   scalaVersion := Scala212
