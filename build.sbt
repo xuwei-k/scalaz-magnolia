@@ -7,7 +7,7 @@ ThisBuild / onChangedBuildSource := ReloadOnSourceChanges
 def gitHash(): String = sys.process.Process("git rev-parse HEAD").lineStream_!.head
 
 val tagName = Def.setting {
-  s"v${if (releaseUseGlobalVersion.value) (version in ThisBuild).value
+  s"v${if (releaseUseGlobalVersion.value) (ThisBuild / version).value
   else version.value}"
 }
 val tagOrHash = Def.setting {
@@ -50,7 +50,7 @@ lazy val commonSettings = nocomma {
     ReleaseStep(
       action = { state =>
         val extracted = Project extract state
-        extracted.runAggregated(PgpKeys.publishSigned in Global in extracted.get(thisProjectRef), state)
+        extracted.runAggregated(extracted.get(thisProjectRef) / (Global / PgpKeys.publishSigned), state)
       },
       enableCrossBuild = true
     ),
@@ -112,11 +112,11 @@ lazy val scalazMagnolia = crossProject(JVMPlatform, JSPlatform)
       "com.github.scalaprops" %%% "scalaprops" % scalapropsVersion.value % "test",
       "com.github.scalaprops" %%% "scalaprops-magnolia" % "0.7.0" % "test"
     )
-    scalacOptions in (Compile, doc) ++= {
+    (Compile / doc / scalacOptions) ++= {
       val tag = tagOrHash.value
       Seq(
         "-sourcepath",
-        (baseDirectory in LocalRootProject).value.getAbsolutePath,
+        (LocalRootProject / baseDirectory).value.getAbsolutePath,
         "-doc-source-url",
         s"https://github.com/xuwei-k/scalaz-magnolia/tree/${tag}€{FILE_PATH}.scala"
       )
@@ -124,7 +124,7 @@ lazy val scalazMagnolia = crossProject(JVMPlatform, JSPlatform)
   })
   .jsSettings(
     scalacOptions += {
-      val a = (baseDirectory in LocalRootProject).value.toURI.toString
+      val a = (LocalRootProject / baseDirectory).value.toURI.toString
       val g = "https://raw.githubusercontent.com/xuwei-k/scalaz-magnolia/" + tagOrHash.value
       s"-P:scalajs:mapSourceURI:$a->$g/"
     }
@@ -141,5 +141,5 @@ lazy val notPublish = nocomma {
 commonSettings
 notPublish
 name := "root"
-sources in Compile := Nil
-sources in Test := Nil
+Compile / sources := Nil
+Test / sources := Nil
